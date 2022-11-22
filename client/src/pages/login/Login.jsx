@@ -8,6 +8,7 @@ import { publicRequest } from "../../requestMethods";
 
 const Login = () => {
   const [err, setErr] = useState(null);
+  const [loading, setLoading] = useState(false);
   const email = useRef();
   const password = useRef();
   const { showLogin, setShowLogin, setShowRegister } =
@@ -17,7 +18,7 @@ const Login = () => {
   const handleLogin = async e => {
     e.preventDefault();
     setErr(null);
-
+    setLoading(true);
     try {
       const res = await publicRequest.post("auth/login", {
         email: email.current.value,
@@ -25,8 +26,10 @@ const Login = () => {
       });
       setCurrentUser(res.data);
       setShowLogin(false);
+      setLoading(false);
     } catch (err) {
       setErr(err.response.data);
+      setLoading(false);
     }
   };
 
@@ -57,8 +60,8 @@ const Login = () => {
             <span className="error">{err.message}</span>
           )}
 
-          <button type="submit" className="login-btn">
-            Login
+          <button disabled={loading} type="submit" className="login-btn">
+            {loading ? "Loading..." : "Login"}
           </button>
         </form>
 
@@ -67,7 +70,11 @@ const Login = () => {
           <span>or create Account</span>
           <div className="line"></div>
         </div>
-        <button onClick={handleSwitch} className="register-btn">
+        <button
+          disabled={loading}
+          onClick={handleSwitch}
+          className="register-btn"
+        >
           create new account
         </button>
       </div>

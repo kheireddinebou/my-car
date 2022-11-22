@@ -177,7 +177,6 @@ const EditForm = () => {
         res && navigate(`/car/${res.data._id}`);
         setShowEdit(false);
         setLoading(false);
-        window.location.reload();
       } catch (err) {
         setLoading(false);
       }

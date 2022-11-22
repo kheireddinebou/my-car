@@ -280,6 +280,8 @@ const SellForm = () => {
                 name={input.name}
                 onChange={e => handleChange(e)}
                 type={input.type}
+                min={input.min}
+                max={input.max}
                 placeholder={input.placeholder}
               />
             </div>

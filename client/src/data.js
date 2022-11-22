@@ -103,7 +103,7 @@ export const bodyTips = [
 
 export const doorsNum = [2, 3, 4, 5];
 
-export const cylinders = ['2', '3', '4', '5', '6', '8', '10', '12', '16'];
+export const cylinders = ["2", "3", "4", "5", "6", "8", "10", "12", "16"];
 
 export const transmissionTypes = ["automatic", "manual"];
 
@@ -161,7 +161,9 @@ export const sellInputs = [
   {
     label: "year",
     name: "year",
-    type: "text",
+    min: 1885,
+    max: new Date().getFullYear() + 1,
+    type: "number",
     placeholder: "Year",
   },
   {
@@ -173,12 +175,14 @@ export const sellInputs = [
   {
     label: "price",
     name: "price",
+    min: 0,
     type: "number",
     placeholder: "Price - (USD)",
   },
   {
     label: "mileage",
     name: "mileage",
+    min: 0,
     type: "number",
     placeholder: "mileage",
   },

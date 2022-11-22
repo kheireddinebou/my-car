@@ -15,6 +15,14 @@
     z-index: 11;
   }
 
+  .return-btn{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 2.5rem;
+    background-color: transparent;
+    z-index: 11;  }
+
   .card {
     position: absolute;
     top: 0;
@@ -63,6 +71,11 @@
         box-shadow: 0 3px 10px 0 rgb(51 51 51 / 35%);
         background-color: var(--primary-color);
         margin-bottom: 20px;
+
+        &:disabled{
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
       }
     }
   }

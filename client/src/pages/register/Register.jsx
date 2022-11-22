@@ -7,11 +7,11 @@ import { publicRequest } from "../../requestMethods";
 
 const Register = () => {
   const [err, setErr] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({});
 
   const { showRegister, setShowLogin, setShowRegister } =
     useContext(ShowAuthContext);
-
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -20,14 +20,17 @@ const Register = () => {
 
   const handleRegister = async e => {
     e.preventDefault();
+    setLoading(true);
     setErr(null);
 
     try {
       const res = await publicRequest.post("auth/register", formData);
       setShowRegister(false);
       setShowLogin(true);
+      setLoading(false);
     } catch (err) {
       setErr(err.response.data);
+      setLoading(false);
     }
   };
 
@@ -83,8 +86,8 @@ const Register = () => {
             minLength="6"
             required
           />
-          <button type="submit" className="login-btn">
-            Create Your account
+          <button disabled={loading} type="submit" className="login-btn">
+            {loading ? "Loading..." : "Create Your account"}
           </button>
         </form>
       </div>
