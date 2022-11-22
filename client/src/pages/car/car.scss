@@ -1,0 +1,165 @@
+.car {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-color);
+
+  .wrapper {
+    padding: 60px 60px;
+    display: flex;
+    gap: 30px;
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
+
+    @media screen and (max-width: 950px) {
+      padding: 60px 0;
+    }
+
+    .left {
+      flex: 1.6;
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+
+      .img-wrapper {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        background: #b7bbc0;
+        box-shadow: 0 0 37px 4px #b7bbc0;
+        min-height: 500px;
+
+        @media screen and (max-width: 768px) {
+          min-height: 400px;
+        }
+
+        img {
+          width: 50%;
+          max-height: 100%;
+          object-fit: cover;
+          flex-grow: 1;
+        }
+      }
+
+      .desc-card {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 40px;
+        background-color: white;
+        box-shadow: 0 1px 13px 0 rgb(0 0 0 / 16%);
+        color: #4a4a4a;
+
+        @media screen and (max-width: 768px) {
+          padding: 20px 10px;
+        }
+
+        .model {
+          font-size: 2.6rem;
+          font-weight: 600;
+          font-family: "Montserrat", sans-serif;
+          text-transform: capitalize;
+        }
+
+        .title {
+          font-size: 1.8rem;
+          font-weight: 500;
+          font-family: "Montserrat", sans-serif;
+          text-transform: capitalize;
+        }
+
+        .desc {
+          line-height: 2;
+          font-size: 1.1rem;
+          font-family: "Montserrat", sans-serif;
+        }
+      }
+    }
+
+    .right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .price {
+        font-size: 3rem;
+        font-weight: 500;
+        margin-bottom: 10px;
+        font-family: "Montserrat", sans-serif;
+        color: var(--primary-color);
+
+        small {
+          font-size: 1.5rem;
+          margin-right: 10px;
+        }
+      }
+
+      .email,
+      .phone {
+        margin-bottom: 10px;
+        padding: 15px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        box-shadow: 0 3px 10px 0 rgb(51 51 51 / 35%);
+        color: white;
+        font-family: "Montserrat", sans-serif;
+        border-radius: 8px;
+      }
+
+      .email {
+        background-color: var(--secondary-color);
+      }
+      .phone {
+        background-color: var(--primary-color);
+      }
+
+      .details {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 40px 0;
+        gap: 13px;
+
+        .row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          font-size: 1.3rem;
+          text-transform: capitalize;
+          color: #333333;
+          span {
+            font-family: "Montserrat", sans-serif;
+            &:nth-child(2) {
+              font-weight: 500;
+            }
+          }
+        }
+      }
+
+      .options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        width: 100%;
+
+        .card {
+          color: #333333;
+          border: 1px solid #7b7c7d;
+          padding: 9px 20px;
+          flex-grow: 1;
+          font-weight: 500;
+          font-size: 1.2rem;
+          text-align: center;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+}

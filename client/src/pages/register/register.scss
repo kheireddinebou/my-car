@@ -1,0 +1,69 @@
+.register {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.6);
+
+  .login-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    background-color: transparent;
+    z-index: 11;
+  }
+
+  .card {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    background-color: #f7f7f9;
+    padding: 30px 40px;
+    border-end-start-radius: 10px;
+    transition: all 0.4s ease-in-out;
+
+    .title {
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin-bottom: 20px;
+      color: var(--secondary-color);
+      text-transform: uppercase;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+
+      input {
+        width: 100%;
+        border: 1px solid gray;
+        padding: 10px;
+        font-size: 1.1rem;
+        border-radius: 5px;
+
+        &:focus {
+          outline: 1px solid black;
+        }
+      }
+
+      .login-btn {
+        width: 100%;
+        color: white;
+        padding: 15px 0;
+        font-weight: 500;
+        font-size: 1.1rem;
+        border-radius: 7px;
+        box-shadow: 0 3px 10px 0 rgb(51 51 51 / 35%);
+        background-color: var(--primary-color);
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

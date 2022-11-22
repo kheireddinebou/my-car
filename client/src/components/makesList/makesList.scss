@@ -1,0 +1,26 @@
+.makesList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(96px, 104px));
+  place-items: center;
+  gap: 20px 8px;
+  justify-content: space-around;
+  padding-bottom: 50px;
+
+  .brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+
+    .name {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    img {
+      width: auto;
+      height: 75px;
+      object-fit: cover;
+    }
+  }
+}

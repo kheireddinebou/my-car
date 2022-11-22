@@ -1,0 +1,79 @@
+.carCard * {
+  font-family: "Montserrat", sans-serif;
+}
+
+.carCard {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  color: var(--secondary-color);
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 0 3px 10px 0 rgb(51 51 51 / 35%);
+  border: 3px solid transparent;
+  flex-grow: 1;
+
+  &:hover {
+    border: 3px solid var(--primary-color);
+    transition: all 0.4s ease-in-out;
+  }
+
+  .thumbnail {
+    width: 100%;
+    min-height: 240px;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      z-index: 2;
+      content: "";
+      bottom: 0;
+      background-image: -webkit-linear-gradient(
+        top,
+        rgba(255, 255, 255, 0) 0%,
+        rgb(255, 255, 255) 100%
+      );
+      left: 0;
+      height: 10px;
+      width: 100%;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 5px 5px 0 0;
+      object-fit: cover;
+    }
+  }
+
+  .name {
+    height: 80px;
+    padding: 20px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .details {
+    margin: 20px;
+    margin-top: 0;
+    padding-left: 5px;
+    display: flex;
+    flex-direction: column;
+    border-left: 3px solid var(--primary-color);
+    font-family: "Montserrat", sans-serif;
+
+    .km {
+      font-size: 0.9rem;
+      font-family: "Montserrat", sans-serif;
+    }
+    .price {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      font-family: "Montserrat", sans-serif;
+    }
+  }
+}

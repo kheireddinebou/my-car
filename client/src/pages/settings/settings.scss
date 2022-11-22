@@ -1,0 +1,119 @@
+.settings * {
+  font-family: "Monteserate", sans-serif;
+}
+
+.settings {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 40;
+  background-color: rgba(0, 0, 0, 0.6);
+
+  .settings-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    background-color: transparent;
+    z-index: 11;
+  }
+
+  .card {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    max-width: 95vw;
+    background-color: #f7f7f9;
+    padding-bottom: 60px;
+    border-end-start-radius: 10px;
+    transition: all 0.4s ease-in-out;
+    overflow: auto;
+    height: 100%;
+    border-end-start-radius: 7px;
+
+    .message {
+      font-size: 1.5rem;
+      text-align: center;
+      color: var(--secondary-color);
+    }
+
+    .title {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: var(--secondary-color);
+      text-transform: uppercase;
+      padding: 20px 0;
+      margin-bottom: 20px;
+    }
+
+    .profile-info {
+      padding: 22px;
+      border-radius: 40px 0 0 40px;
+      background-color: #4a4a4a;
+      color: white;
+      font-size: 1.5rem;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 10px;
+      padding-left: 32px;
+      margin-left: 70px;
+    }
+
+    .line-wrapper {
+      margin: 30px;
+      width: 90%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #696b6d;
+      text-transform: capitalize;
+      gap: 10px;
+
+      .line {
+        height: 1px;
+        flex-grow: 1;
+        background-color: gray;
+      }
+
+      span {
+        text-transform: capitalize;
+        font-size: 1.4rem;
+      }
+    }
+
+    .posts {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .logout-btn {
+      position: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      z-index: 41;
+      width: 500px;
+      max-width: 95vw;
+      bottom: 0;
+      color: white;
+      padding: 20px 0;
+      font-weight: 500;
+      font-size: 1.3rem;
+      border-radius: 7px;
+      box-shadow: 0 3px 10px 0 rgb(51 51 51 / 35%);
+      background-color: var(--primary-color);
+
+      .icon {
+        font-size: 1.8rem;
+      }
+    }
+  }
+}

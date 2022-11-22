@@ -1,0 +1,56 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 3px 10px 0 rgb(51 51 51 / 35%);
+  gap: 15px;
+
+  img {
+    height: 250px;
+    object-fit: cover;
+    width: 1005;
+  }
+
+  .model {
+    font-size: 1.1rem;
+    color: gray;
+  }
+
+  .name {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--secondary-color);
+  }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+
+    button {
+      padding: 10px;
+      text-align: center;
+      width: 50%;
+      border-radius: 7px;
+      font-size: 1.1rem;
+      color: white;
+
+      &:hover {
+        box-shadow: 0 3px 10px 0 rgb(51 51 51 / 65%);
+        transition: all 0.2 s ease-in-out;
+      }
+    }
+
+    .delete {
+      background-color: var(--secondary-color);
+    }
+    .edit {
+      background-color: var(--primary-color);
+    }
+  }
+}

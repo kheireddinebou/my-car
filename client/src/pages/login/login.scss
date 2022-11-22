@@ -1,0 +1,104 @@
+.login {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+
+  .login-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    background-color: transparent;
+    z-index: 11;
+  }
+
+  .card {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    background-color: #F7F7F9;
+    padding: 30px 40px;
+    border-end-start-radius: 10px;
+    transition: all 0.4s ease-in-out;
+
+    .title {
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin-bottom: 20px;
+      color: var(--secondary-color);
+      text-transform: uppercase;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+
+      input {
+        width: 100%;
+        border: 1px solid gray;
+        padding: 10px;
+        font-size: 1.1rem;
+        border-radius: 5px;
+
+        &:focus {
+          outline: 1px solid black;
+        }
+      }
+
+      .login-btn {
+        width: 100%;
+        color: white;
+        padding: 15px 0;
+        font-weight: 500;
+        font-size: 1.1rem;
+        border-radius: 7px;
+        box-shadow: 0 3px 10px 0 rgb(51 51 51 / 35%);
+        background-color: var(--primary-color);
+      }
+    }
+
+    .center {
+      margin: 40px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      color: #696b6d;
+      text-transform: capitalize;
+      gap: 10px;
+
+      .line {
+        height: 1px;
+        flex-grow: 1;
+        background-color: gray;
+      }
+
+      span {
+        text-transform: capitalize;
+        font-size: 1.4rem;
+      }
+    }
+
+    .register-btn {
+      width: 100%;
+      color: var(--primary-color);
+      padding: 15px 0;
+      font-weight: 500;
+      font-size: 1.1rem;
+      border-radius: 7px;
+      box-shadow: 0 3px 10px 0 rgb(51 51 51 / 35%);
+      background-color: white;
+      outline: 2px solid var(--primary-color);
+      text-transform: capitalize;
+      margin-bottom: 20px;
+    }
+  }
+}

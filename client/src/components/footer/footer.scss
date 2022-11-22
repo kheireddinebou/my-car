@@ -1,0 +1,123 @@
+.footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--secondary-color);
+  color: white;
+  border-top: 3px solid var(--primary-color);
+
+  .wrapper {
+    display: flex;
+    padding: 5rem 0;
+    gap: 30px;
+
+    @media screen and (max-width: 868px) {
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .logo {
+        font-weight: 600;
+        padding-bottom: 10px;
+      }
+
+      span {
+        font-size: 1rem;
+        line-height: 30px;
+      }
+
+      .links {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        a {
+          font-size: 1.8rem;
+
+          &:hover {
+            color: var(--primary-color);
+            transition: all 0.3s ease-in-out;
+          }
+        }
+      }
+    }
+
+    .center {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+
+      @media screen and (max-width: 868px) {
+        justify-content: flex-start;
+      }
+
+      .col {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        span {
+          font-size: 1.4rem;
+          font-weight: 600;
+          padding-bottom: 20px;
+          text-transform: capitalize;
+        }
+
+        a {
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .footer-right {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      @media screen and (max-width: 868px) {
+        justify-content: flex-start;
+      }
+      .right-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .top {
+          font-size: 1.4rem;
+          padding-bottom: 20px;
+          font-weight: 600;
+          text-transform: capitalize;
+        }
+
+        .col {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+          .contact {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            .icon {
+              font-size: 1.7rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .copyrights {
+    font-family: "Montserrat", sans-serif;
+    padding: 40px 0;
+  }
+}

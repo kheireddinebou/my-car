@@ -1,0 +1,103 @@
+import "./car.scss";
+import Footer from "../../components/footer/Footer";
+import Navbar from "../../components/navbar/Navbar";
+import { useEffect, useState } from "react";
+import { publicRequest } from "../../requestMethods";
+import { useParams } from "react-router-dom";
+import { carDetails } from "../../data";
+
+const Car = () => {
+  const [showEmail, setShowEmail] = useState(false);
+  const [showNumber, setShowNumber] = useState(false);
+  const [car, setCar] = useState(null);
+  const [images, setImages] = useState([]);
+
+  const { id } = useParams();
+
+  const getData = async () => {
+    try {
+      const res = await publicRequest.get(`car/${id}`);
+      setCar(res.data);
+      setImages(res.data.images);
+    } catch {}
+  };
+
+  const phone =
+    [
+      car?.phone.slice(0, 3),
+      " ",
+      car?.phone.slice(3, 7),
+      " ",
+      car?.phone.slice(7),
+    ].join("") || "";
+
+  useEffect(() => {
+    getData();
+  }, [id]);
+
+  return (
+    <>
+      <div style={{ borderBottom: "1px  solid black" }}>
+        <Navbar />
+      </div>
+      {car && (
+        <div className="car">
+          <div className="container wrapper">
+            <div className="left">
+              <div className="img-wrapper">
+                {images.map((img, i) => (
+                  <img key={i} src={img} alt={car.model} />
+                ))}
+              </div>
+              <div className="desc-card">
+                <span className="model">
+                  {car.make} {car.model}
+                </span>
+                <span className="title">{car.title}</span>
+                {car.desc && <span className="desc">{car.desc}</span>}
+              </div>
+            </div>
+            <div className="right">
+              <span className="price">
+                <small>USD</small>
+                {car.price.toLocaleString()}
+              </span>
+              <div style={{ width: "100%" }} onClick={() => setShowEmail(true)}>
+                <a href={`mailto:${car.email}`} className="email">
+                  {showEmail ? car.email : "Show Email"}
+                </a>
+              </div>
+              <div
+                style={{ width: "100%" }}
+                onClick={() => setShowNumber(true)}
+              >
+                <a href={`tel:+${car.phone}`} className="phone">
+                  {showNumber ? phone : "Show Number"}
+                </a>
+              </div>
+
+              <div className="details">
+                {carDetails.map((d, i) => (
+                  <div key={i} className="row">
+                    <span>{d}</span>
+                    <span>{car[d.toLowerCase()]}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="options">
+                {car.tags.map((t, i) => (
+                  <div key={i} className="card">
+                    {t}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <Footer />
+        </div>
+      )}
+    </>
+  );
+};
+
+export default Car;
