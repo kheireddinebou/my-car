@@ -71,7 +71,10 @@ const Navbar = () => {
           {/* search for mobile */}
 
           <BsSearch
-            onClick={() => setShowSearch(true)}
+            onClick={() => {
+              setShowComp(true);
+              setShowSearch(true);
+            }}
             className="search-icon"
           />
           <div className={`search ${showSearch ? "show" : ""}`}>

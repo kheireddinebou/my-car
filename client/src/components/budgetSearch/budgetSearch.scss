@@ -13,19 +13,26 @@
     padding-bottom: 30px;
     color: var(--secondary-color);
     text-align: center;
+
+    @media screen and (max-width: 768px) {
+      font-size: 2rem;
+    }
   }
 
   form {
     display: flex;
     align-items: center;
-    max-width: 90vw;
+    width: 90%;
+    max-width: 500px;
 
     input {
-      width: 300px;
       padding: 12px 10px;
       font-size: 1.2rem;
       border: 1px solid gray;
-
+      flex-grow: 1;
+      @media screen and (max-width: 398px) {
+        font-size: 0.8rem;
+      }
       &:focus {
         outline: 1pxx solid black;
       }
@@ -39,6 +46,10 @@
       border: 1px solid var(--primary-color);
       box-shadow: 0 3px 10px 0 rgb(51 51 51 / 35%);
       border-radius: 0 5px 5px 0;
+
+      @media screen and (max-width: 398px) {
+        font-size: 0.8rem;
+      }
     }
   }
 }

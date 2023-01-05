@@ -5,12 +5,15 @@ import { useEffect, useState } from "react";
 import { publicRequest } from "../../requestMethods";
 import { useParams } from "react-router-dom";
 import { carDetails } from "../../data";
+import ImagesSlider from "../../components/imagesSlider/ImagesSlider";
 
 const Car = () => {
   const [showEmail, setShowEmail] = useState(false);
   const [showNumber, setShowNumber] = useState(false);
   const [car, setCar] = useState(null);
   const [images, setImages] = useState([]);
+  const [sliderIndex, setSliderIndex] = useState(0);
+  const [showSlider, setShowSlider] = useState(false);
 
   const { id } = useParams();
 
@@ -31,12 +34,25 @@ const Car = () => {
       car?.phone.slice(7),
     ].join("") || "";
 
+  const openImage = index => {
+    setShowSlider(true);
+    setSliderIndex(index);
+  };
+
   useEffect(() => {
     getData();
   }, [id]);
 
   return (
     <>
+      {showSlider && (
+        <ImagesSlider
+          images={images}
+          sliderIndex={sliderIndex}
+          setSliderIndex={setSliderIndex}
+          setShowSlider={setShowSlider}
+        />
+      )}
       <div style={{ borderBottom: "1px  solid black" }}>
         <Navbar />
       </div>
@@ -46,7 +62,12 @@ const Car = () => {
             <div className="left">
               <div className="img-wrapper">
                 {images.map((img, i) => (
-                  <img key={i} src={img} alt={car.model} />
+                  <img
+                    onClick={() => openImage(i)}
+                    key={i}
+                    src={img}
+                    alt={car.model}
+                  />
                 ))}
               </div>
               <div className="desc-card">

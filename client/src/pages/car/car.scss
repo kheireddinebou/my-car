@@ -4,7 +4,7 @@
   background-color: var(--bg-color);
 
   .wrapper {
-    padding: 60px 60px;
+    padding: 60px 0;
     display: flex;
     gap: 30px;
 
@@ -24,21 +24,21 @@
 
       .img-wrapper {
         display: flex;
-        justify-content: space-around;
         flex-wrap: wrap;
         background: #b7bbc0;
         box-shadow: 0 0 37px 4px #b7bbc0;
-        min-height: 500px;
+        gap: 5px;
+        max-height: 100vh;
 
         @media screen and (max-width: 768px) {
           min-height: 400px;
         }
 
         img {
-          width: 50%;
-          max-height: 100%;
-          object-fit: cover;
+          width: 45%;
           flex-grow: 1;
+          object-fit: cover;
+          cursor: pointer;
         }
       }
 
@@ -60,6 +60,9 @@
           font-weight: 600;
           font-family: "Montserrat", sans-serif;
           text-transform: capitalize;
+          @media screen and (max-width: 768px) {
+            font-size: 2rem;
+          }
         }
 
         .title {
@@ -67,6 +70,9 @@
           font-weight: 500;
           font-family: "Montserrat", sans-serif;
           text-transform: capitalize;
+          @media screen and (max-width: 768px) {
+            font-size: 1.4rem;
+          }
         }
 
         .desc {
@@ -162,4 +168,8 @@
       }
     }
   }
+}
+
+.car::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }

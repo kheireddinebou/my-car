@@ -15,13 +15,14 @@
     z-index: 11;
   }
 
-  .return-btn{
+  .return-btn {
     position: absolute;
     top: 20px;
     left: 20px;
     font-size: 2.5rem;
     background-color: transparent;
-    z-index: 11;  }
+    z-index: 11;
+  }
 
   .card {
     position: absolute;
@@ -30,10 +31,15 @@
     flex-direction: column;
     align-items: center;
     width: 400px;
+    max-width: 100vw;
     background-color: #f7f7f9;
     padding: 30px 40px;
     border-end-start-radius: 10px;
     transition: all 0.4s ease-in-out;
+
+    @media screen and (max-width: 500px) {
+      padding: 10px;
+    }
 
     .title {
       font-size: 1.6rem;
@@ -72,7 +78,7 @@
         background-color: var(--primary-color);
         margin-bottom: 20px;
 
-        &:disabled{
+        &:disabled {
           opacity: 0.5;
           cursor: not-allowed;
         }
