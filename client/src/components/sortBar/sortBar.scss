@@ -23,13 +23,12 @@
     align-items: center;
     gap: 5px;
     text-transform: capitalize;
-    justify-self: center;
   }
 
   span {
-    width: 100%;
     position: absolute;
-    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
     @media screen and (max-width: 768px) {
       position: static;
       width: fit-content;

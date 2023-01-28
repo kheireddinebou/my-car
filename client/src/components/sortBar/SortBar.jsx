@@ -57,7 +57,7 @@ const SortBar = ({ cars, setFiltredCars, setFilter }) => {
   return (
     <>
       <div className="SortBar">
-        <button disabled={cars.length < 2} onClick={() => setShowList(true)}>
+        <button onClick={() => setShowList(true)}>
           <FaSortAmountDown />
           {filterType ? filterType : "Sort"}
         </button>
