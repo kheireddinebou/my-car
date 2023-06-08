@@ -5,9 +5,11 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { publicRequest } from "../../requestMethods";
 import SortBar from "../sortBar/SortBar";
+import { TailSpin } from "react-loader-spinner";
 
 const CarsList = () => {
   const [cars, setCars] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [filtredCars, setFiltredCars] = useState(null);
   const [filter, setFilter] = useState(false);
   const [showMsg, setShowMsg] = useState(false);
@@ -37,8 +39,10 @@ const CarsList = () => {
       }
       setCars(res.data);
       setShowMsg(true);
-    } catch {
+    } catch (error) {
       setShowMsg(true);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -48,24 +52,42 @@ const CarsList = () => {
 
   return (
     <>
-      <div className="carsList container">
-        {cars.length > 0
-          ? filter
-            ? filtredCars?.map(c => (
-                <Link key={c._id} to={`/car/${c._id}`}>
-                  <CarCard car={c} />
-                </Link>
-              ))
-            : cars?.map(c => (
-                <Link key={c._id} to={`/car/${c._id}`}>
-                  <CarCard car={c} />
-                </Link>
-              ))
-          : showMsg && (
-              <p className="no-result">OOPS, NO RESULTS MATCHING YOUR SEARCH</p>
-            )}
-      </div>
-      {pathname === "/search" && (
+      {isLoading ? (
+        <TailSpin
+          height="60"
+          width="60"
+          color="gray"
+          ariaLabel="tail-spin-loading"
+          wrapperStyle={{
+            margin: "80px auto",
+            width: "fit-content",
+          }}
+          radius="1"
+          visible={true}
+        />
+      ) : (
+        <div className="carsList container">
+          {cars.length > 0
+            ? filter
+              ? filtredCars?.map(c => (
+                  <Link key={c._id} to={`/car/${c._id}`}>
+                    <CarCard car={c} />
+                  </Link>
+                ))
+              : cars?.map(c => (
+                  <Link key={c._id} to={`/car/${c._id}`}>
+                    <CarCard car={c} />
+                  </Link>
+                ))
+            : showMsg && (
+                <p className="no-result">
+                  OOPS, NO RESULTS MATCHING YOUR SEARCH
+                </p>
+              )}
+        </div>
+      )}
+
+      {pathname === "/search" && !showMsg && (
         <SortBar
           setFiltredCars={setFiltredCars}
           setFilter={setFilter}
