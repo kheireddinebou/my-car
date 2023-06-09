@@ -9,7 +9,7 @@ import { TailSpin } from "react-loader-spinner";
 
 const CarsList = () => {
   const [cars, setCars] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [filtredCars, setFiltredCars] = useState(null);
   const [filter, setFilter] = useState(false);
   const { search, pathname } = useLocation();

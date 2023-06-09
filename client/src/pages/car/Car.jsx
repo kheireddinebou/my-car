@@ -11,7 +11,7 @@ import { TailSpin } from "react-loader-spinner";
 const Car = () => {
   const [showEmail, setShowEmail] = useState(false);
   const [showNumber, setShowNumber] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [car, setCar] = useState(null);
   const [images, setImages] = useState([]);
   const [sliderIndex, setSliderIndex] = useState(0);
