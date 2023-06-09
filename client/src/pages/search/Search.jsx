@@ -6,9 +6,8 @@ import "./search.scss";
 const Search = () => {
   return (
     <>
-      <Navbar />
-
       <div className="search-page">
+        <Navbar />
         <SellBtn />
         <CarsList />
       </div>

@@ -1,18 +1,16 @@
-import "./navbar.scss";
-import { MdKeyboardArrowDown } from "react-icons/md";
+import { useContext, useState } from "react";
+import { useDetectClickOutside } from "react-detect-click-outside";
 import { BsSearch } from "react-icons/bs";
 import { FaIdCard } from "react-icons/fa";
-import { useContext, useState } from "react";
-import { carBrands } from "../../data";
+import { MdKeyboardArrowDown } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
-import { useDetectClickOutside } from "react-detect-click-outside";
+import { CurrentUserContext } from "../../context/currentUserContext/currentUserContext";
 import { ShowAuthContext } from "../../context/showAuthContext/showAuthContext";
+import { carBrands } from "../../data";
 import Login from "../../pages/login/Login";
 import Register from "../../pages/register/Register";
 import Settings from "../../pages/settings/Settings";
-import { useRef } from "react";
-import { CurrentUserContext } from "../../context/currentUserContext/currentUserContext";
-import { ShowEditContext } from "../../context/showEditContext copy/showEditContext ";
+import "./navbar.scss";
 
 const Navbar = () => {
   const [showComp, setShowComp] = useState(false);
@@ -21,7 +19,7 @@ const Navbar = () => {
   const [showSett, setShowSett] = useState(false);
   const [searchText, setSearchText] = useState("");
   const { showLogin, setShowLogin, showRegister } = useContext(ShowAuthContext);
-  const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
+  const { currentUser } = useContext(CurrentUserContext);
 
   const navigate = useNavigate();
 
