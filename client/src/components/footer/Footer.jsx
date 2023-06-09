@@ -8,8 +8,12 @@ import {
 } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import "./footer.scss";
+import { useContext } from "react";
+import { ShowAuthContext } from "../../context/showAuthContext/showAuthContext";
 
 const Footer = () => {
+  const { setShowRegister, setShowLogin, } = useContext(ShowAuthContext);
+
   return (
     <footer className="footer">
       <div className="container wrapper">
@@ -42,8 +46,8 @@ const Footer = () => {
             <span>Quick Links</span>
             <Link>About us</Link>
             <Link>Classifieds</Link>
-            <Link>Log in</Link>
-            <Link>Sign up</Link>
+            <Link onClick={() => setShowLogin(true)}>Log in</Link>
+            <Link onClick={() => setShowRegister(true)}>Sign up</Link>
           </div>
           <div className="col">
             <span>Support</span>
