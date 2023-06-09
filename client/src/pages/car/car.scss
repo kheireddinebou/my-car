@@ -1,9 +1,9 @@
 .car {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: var(--bg-color);
 
-  .wrapper {
+  .car-wrapper {
     padding: 60px 0;
     display: flex;
     gap: 30px;
