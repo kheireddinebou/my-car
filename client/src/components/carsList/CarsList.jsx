@@ -12,13 +12,13 @@ const CarsList = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [filtredCars, setFiltredCars] = useState(null);
   const [filter, setFilter] = useState(false);
-  const [showMsg, setShowMsg] = useState(false);
   const { search, pathname } = useLocation();
   const query = search && search.split("?")[1].split("=")[0];
   const queryValue = search && search.split("?")[1].split("=")[1];
 
   const getData = async () => {
     try {
+      setIsLoading(true);
       let res;
       if (query === "all") {
         res = await publicRequest.get("car");
@@ -38,9 +38,7 @@ const CarsList = () => {
         res = await publicRequest.get("car?new=true");
       }
       setCars(res.data);
-      setShowMsg(true);
     } catch (error) {
-      setShowMsg(true);
     } finally {
       setIsLoading(false);
     }
@@ -67,27 +65,27 @@ const CarsList = () => {
         />
       ) : (
         <div className="carsList container">
-          {cars.length > 0
-            ? filter
-              ? filtredCars?.map(c => (
-                  <Link key={c._id} to={`/car/${c._id}`}>
-                    <CarCard car={c} />
-                  </Link>
-                ))
-              : cars?.map(c => (
-                  <Link key={c._id} to={`/car/${c._id}`}>
-                    <CarCard car={c} />
-                  </Link>
-                ))
-            : showMsg && (
-                <p className="no-result">
-                  OOPS, NO RESULTS MATCHING YOUR SEARCH
-                </p>
-              )}
+          {cars.length > 0 ? (
+            filter ? (
+              filtredCars?.map(c => (
+                <Link key={c._id} to={`/car/${c._id}`}>
+                  <CarCard car={c} />
+                </Link>
+              ))
+            ) : (
+              cars?.map(c => (
+                <Link key={c._id} to={`/car/${c._id}`}>
+                  <CarCard car={c} />
+                </Link>
+              ))
+            )
+          ) : (
+            <p className="no-result">OOPS, NO RESULTS MATCHING YOUR SEARCH</p>
+          )}
         </div>
       )}
 
-      {pathname === "/search" && !showMsg && (
+      {pathname === "/search" && (
         <SortBar
           setFiltredCars={setFiltredCars}
           setFilter={setFilter}
